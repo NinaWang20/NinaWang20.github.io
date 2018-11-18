@@ -74,14 +74,18 @@
       双指缩放，单指拖动<br />点击按钮切换绘制模式
     </p>
       <!-- countdown button -->
-      <!-- <p id="timer" style="position: absolute;
-        left: opx;
+      <p id="timer" style="position: absolute;
+        left: 0px;
         top: 0px;
         font-family: Century Gothic;
         font-size: 28px;
-        color: black;">
-      5:00
-      </p> -->
+        color: black;
+        opacity: 0.0">
+      </p>
+    <!--    pracrice trial    -->
+      <p id="practiceinstruction" style="position: absolute; left: 0px; top: 40px; font-family: 微软雅黑; font-size: 16px; color: red">
+        首先，熟悉一下画板！您可以随意点一点、画一画。30秒后页面会自动跳转正式测试。
+      </p>
     </div>
 
   <!-- sketchboard -->
@@ -109,8 +113,8 @@
        mycanvas.style.top = "110px";
      } else {
        mycanvas.width = 320;
-       mycanvas.height = 450;
-       mycanvas.style.top = "40px";
+       mycanvas.height = 400;
+       mycanvas.style.top = "90px";
      }
      context = mycanvas.getContext("2d");
 
@@ -150,8 +154,8 @@
      draw = 0;
 
      //timer变量
-     // timersec = 1;
-     // timermin = 5;
+     timersec = 31;
+     timermin = 0;
 
      $('#mybutton').on("touchstart",function(e){
        if (draw == 1) {
@@ -271,26 +275,26 @@
        }
      }
 
-     // function mytimer(){
-     //   if(timersec == 0 && timermin == 0){
-     //     location.href='thank_you_.html';
-     //   }
-     //   else if (timersec > 10){
-     //     timersec -= 1;
-     //     timer.innerHTML = timermin + ":" + timersec;
-     //   }
-     //   else if (timersec == 0 &&  timermin > 0) {
-     //     timersec = 59;
-     //     timermin -= 1;
-     //     timer.innerHTML = timermin + ":" + timersec;
-     //   }
-     //   else {
-     //     timersec -= 1;
-     //     timer.innerHTML = timermin + ":0" + timersec;
-     //   }
-     //   setTimeout("mytimer()",1000);
-     // }
-     // mytimer();
+     function mytimer(){
+       if(timersec == 0 && timermin == 0){
+         location.href='thank_you_.html';
+       }
+       else if (timersec > 10){
+         timersec -= 1;
+         timer.innerHTML = timermin + ":" + timersec;
+       }
+       else if (timersec == 0 &&  timermin > 0) {
+         timersec = 59;
+         timermin -= 1;
+         timer.innerHTML = timermin + ":" + timersec;
+       }
+       else {
+         timersec -= 1;
+         timer.innerHTML = timermin + ":0" + timersec;
+       }
+       setTimeout("mytimer()",1000);
+     }
+     mytimer();
     </script>
   </body>
 </html>
