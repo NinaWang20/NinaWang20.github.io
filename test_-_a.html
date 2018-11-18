@@ -273,7 +273,25 @@
 
      function mytimer(){
        if(timersec == 0 && timermin == 0){
-         location.href='thank_you_.html';
+         num = Number(localStorage.getItem("num"));
+         page2 = localStorage.getItem("page2");
+         page3 = localStorage.getItem("page3");
+         localStorage.setItem("testAClickDrag",clickDrag);
+         localStorage.setItem("testAClickX",clickX);
+         localStorage.setItem("testAClickY",clickY);
+         if(num == 2){
+           location.href= page2;
+           num += 1;
+           localStorage.setItem("num", "num");
+         }
+         else if (num == 3) {
+           location.href= page3;
+           num += 1;
+           localStorage.setItem("num", "num");
+         }
+         else if (num == 4) {
+           location.href='thank_you_.html';
+         }
        }
        else if (timersec > 10){
          timersec -= 1;
