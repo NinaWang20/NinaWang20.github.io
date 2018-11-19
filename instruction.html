@@ -69,11 +69,13 @@
     </div>
 
     <script>
+      id = document.getElementById('u10_input');
       $('#u12').on("touchstart",function(e){
         var pagearr = [['test_-_a.html','test_-_b.html','test_-_s.html'],['test_-_a.html','test_-_s.html','test_-_b.html'],['test_-_b.html','test_-_a.html','test_-_s.html'],['test_-_b.html','test_-_s.html','test_-_a.html'],['test_-_s.html','test_-_a.html','test_-_b.html'],['test_-_s.html','test_-_b.html','test_-_a.html']];
         var rank = Math.floor(Math.random()*6);
         page = pagearr[rank];
-        num = 2;
+        num = 4;
+        localStorage.setItem("id",id.value);
         localStorage.setItem("page2", page[1]);
         localStorage.setItem("page3", page[2]);
         localStorage.setItem("num", num);
