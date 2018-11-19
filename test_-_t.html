@@ -203,6 +203,7 @@
        }
        if(zoom[0]){
          zoomindex = (e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) / zoomdistance;
+         console.log(zoomindex);
          zoomdistance = e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX;
          zoom[2] = zoom[2] * zoomindex;
          var zoomcenterX =Math.abs( (anchorX - centerX)/zoom[1]);
@@ -277,7 +278,7 @@
 
      function mytimer(){
        if(timersec == 0 && timermin == 0){
-         location.href='instruction.html';
+         // location.href='instruction.html';
        }
        else if (timersec > 10){
          timersec -= 1;
