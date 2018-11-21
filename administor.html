@@ -43,8 +43,8 @@
       </div>
 
       <!-- reviewbutton (提交按钮) -->
-      <div id="u25" class="ax_default html_button" data-label="reviewbutton">
-        <input id="u25_input" type="submit" value="查看"/>
+      <div id="reviewbutton">
+        <input id="u25_input" value="查看"/>
       </div>
 
       <!-- password (组 合) -->
@@ -53,6 +53,9 @@
         <!-- passwordInput (文本框) -->
         <div id="u27" class="ax_default text_field" data-label="passwordInput">
           <input id="u27_input" type="text" value=""/>
+          <p id="error" style="position: relative ;top: 0px; font-family: 微软雅黑; font-size: 10px; color: red">
+
+          </p>
         </div>
 
         <!-- Unnamed (矩形) -->
@@ -64,5 +67,20 @@
         </div>
       </div>
     </div>
+
+    <script>
+      idInput = document.getElementById('u23_input');
+      codeInput = document.getElementById('u27_input');
+      error = document.getElementById('error');
+      $("#reviewbutton").on('touchstart', function(e){
+        if(codeInput.value == 'pimczb'){
+          location.href = 'result.html';
+          localStorage.setItem("idreview", idInput.value);
+        }
+        else {
+          error.innerHTML = "密码不正确，请从新输入";
+        }
+      });
+    </script>
   </body>
 </html>
