@@ -60,7 +60,7 @@
         border-radius: 10px;
         font-family: 微软雅黑;
         font-size: 16px;
-        color: white">
+        color: white;">
       绘制图案
       </button>
       <p id="caption"
@@ -150,8 +150,8 @@
      draw = 0;
 
      //timer变量
-     timersec = 1;
-     timermin = 5;
+     timersec = 15;
+     timermin = 0;
 
      $('#mybutton').on("touchstart",function(e){
        if (draw == 1) {
@@ -276,9 +276,9 @@
          num = Number(localStorage.getItem("num"));
          page2 = localStorage.getItem("page2");
          page3 = localStorage.getItem("page3");
-         localStorage.setItem("testAClickDrag",clickDrag);
-         localStorage.setItem("testAClickX",clickX);
-         localStorage.setItem("testAClickY",clickY);
+         localStorage.setItem("testAClickDrag",JSON.stringify(clickDrag));
+         localStorage.setItem("testAClickX",JSON.stringify(clickX));
+         localStorage.setItem("testAClickY",JSON.stringify(clickY));
          if(num == 2){
            location.href= page2;
            num += 1;

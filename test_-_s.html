@@ -276,9 +276,9 @@
          num = Number(localStorage.getItem("num"));
          page2 = localStorage.getItem("page2");
          page3 = localStorage.getItem("page3");
-         localStorage.setItem("testSClickDrag",clickDrag);
-         localStorage.setItem("testSClickX",clickX);
-         localStorage.setItem("testSClickY",clickY);
+         localStorage.setItem("testSClickDrag",JSON.stringify(clickDrag));
+         localStorage.setItem("testSClickX",JSON.stringify(clickX));
+         localStorage.setItem("testSClickY",JSON.stringify(clickY));
          if(num == 2){
            location.href= page2;
            num += 1;
