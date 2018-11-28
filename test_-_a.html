@@ -94,7 +94,7 @@
    It is 2018! Get a NEW browser which supports canvas!
    </canvas>
    <div id="pic" style="visibility: hidden;">
-     <img id="test-a" class="img" src="images/test-a.png"/>
+     <img id="test-a" class="img" src="images/test-t.png"/>
    </div>
  </div>
 
@@ -276,22 +276,34 @@
          num = Number(localStorage.getItem("num"));
          page2 = localStorage.getItem("page2");
          page3 = localStorage.getItem("page3");
-         localStorage.setItem("testAClickDrag",JSON.stringify(clickDrag));
-         localStorage.setItem("testAClickX",JSON.stringify(clickX));
-         localStorage.setItem("testAClickY",JSON.stringify(clickY));
-         if(num == 2){
-           location.href= page2;
-           num += 1;
-           localStorage.setItem("num", num);
-         }
-         else if (num == 3) {
-           location.href= page3;
-           num += 1;
-           localStorage.setItem("num", num);
-         }
-         else if (num == 4) {
-           location.href='thank_you_.html';
-         }
+         id = localStorage.getItem("id");
+         var sub = {"id": id, "test": "Arrow", "clickX": JSON.stringify(clickX), "clickY": JSON.stringify(clickY), "clickDrag": JSON.stringify(clickDrag)};
+         var subdata = JSON.stringify(sub);
+         clearTimeout(t);
+         // $.ajax({
+         //   type : 'POST',
+         //   url : '/datajson.php',
+         //   data: {"id": "1"},
+         //   datatype: "JSON",
+         //   success : function(data){
+         //     if(num == 2){
+         //       location.href= page2;
+         //       num += 1;
+         //       localStorage.setItem("num", num);
+         //     }
+         //     else if (num == 3) {
+         //       location.href= page3;
+         //       num += 1;
+         //       localStorage.setItem("num", num);
+         //     }
+         //     else if (num == 4) {
+         //       location.href='thank_you_.html';
+         //     }
+         //   },
+         //  error: function(){
+         //    alert('error');
+         //  }
+         // });
        }
        else if (timersec > 10){
          timersec -= 1;
