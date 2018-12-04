@@ -156,7 +156,7 @@
            zoom[0] = true;
            anchorX = (e.originalEvent.touches[0].pageX + e.originalEvent.touches[1].pageX) / 2 - offsetx;
            anchorY = (e.originalEvent.touches[0].pageY + e.originalEvent.touches[1].pageY) / 2 - offsety;
-           zoomdistance = e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX;
+           zoomdistance = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX);
            inidistance = zoomdistance;
            redraw();
          }
@@ -184,9 +184,9 @@
        }
        if(zoom[0]){
          if (e.originalEvent.touches.length == 2) {
-           if ((e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) >= inidistance) {
-             zoomindex = (e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) / zoomdistance;
-             zoomdistance = e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX;
+           if (Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) >= inidistance) {
+             zoomindex = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) / zoomdistance;
+             zoomdistance = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX);
              zoom[2] = zoom[2] * zoomindex;
              var zoomcenterX =Math.abs( (anchorX - centerX)/zoom[1]);
              var zoomcenterY =Math.abs( (anchorY - centerY)/zoom[1]);
@@ -212,6 +212,7 @@
          }
          else if (e.originalEvent.touches.length == 1) {
            zoom[0] = false;
+           return;
          }
        }
        if(translateY[0] && translateX[0]){
