@@ -173,7 +173,7 @@
          var zoomcenterY = Math.abs( (anchorY - centerY)/zoom[1]);
          centerX = centerX * zoomindex - (zoomindex - 1) * anchorX;
          centerY = centerY * zoomindex - (zoomindex - 1) * anchorY;
-         backend.innerHTML = 'zoomindex'+zoomindex+'anchorX'+anchorX;
+         backend.innerHTML = 'index'+zoomindex+"<br />"+'zcenterX'+zoomcenterX+"<br />"+"centerX"+centerX;
          if (centerX < anchorX) {
            orientX = -1;
          } else if (centerX > anchorX){
@@ -205,8 +205,8 @@
        }
        else if (draw == 1){
          paint = true;
-         addClick(e.srcEvent.offsetX, e.srcEvent.offsetY);
-         backend.innerHTML = 'X'+e.srcEvent.offsetX+'Y'+e.srcEvent.offsetY;
+         addClick(e.center.x - mycanvas.getBoundingClientRect().left, e.center.y - mycanvas.getBoundingClientRect().top);
+         backend.innerHTML = 'X'+e.srcEvent.offsetX+"<br>"+'Y'+e.srcEvent.offsetY;
          redraw();
        }
      });
@@ -224,7 +224,8 @@
          redraw();
        }
        if (paint) {
-         addClick(e.srcEvent.offsetX, e.srcEvent.offsetY, true);
+         addClick(e.center.x - mycanvas.getBoundingClientRect().left, e.center.y - mycanvas.getBoundingClientRect().top);
+         backend.innerHTML = 'X'+e.srcEvent.offsetX+"<br>"+'Y'+e.srcEvent.offsetY;
          redraw();
        }
      });
