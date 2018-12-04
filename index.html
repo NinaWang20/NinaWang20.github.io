@@ -105,8 +105,8 @@
 
      var zoom = new Array();
      zoom[0] = false;
-     zoom[1] = 1;
      zoom[2] = 1;
+     zoom[3] = 1;
      zoomindex = 1;
      var zoomdistance;
      orientX = 0;
@@ -163,7 +163,9 @@
 
      hm.on("pinchmove", function(e){
        if (zoom[0]) {
-         zoomindex = e.scale / zoom[1];
+         zoomindex = e.scale / zoom[3];
+         zoom[3] = e.scale;
+         zoom[2] = zoom[2] * zoomindex;
          var zoomcenterX = Math.abs( (anchorX - centerX)/zoom[1]);
          var zoomcenterY = Math.abs( (anchorY - centerY)/zoom[1]);
          centerX = centerX * zoomindex - (zoomindex - 1) * anchorX;
@@ -181,7 +183,7 @@
          context.translate(zoomcenterX*(zoomindex-1)*orientX,zoomcenterY*(zoomindex-1)*orientY);
          context.scale(zoomindex,zoomindex);
          redraw();
-         zoom[1] = zoomindex;
+         zoom[1] = zoom[2];
          orientX = 0;
          orientY = 0;
        }
@@ -206,7 +208,6 @@
      hm.on("panmove", function(e){
        event.preventDefault();
        if (pan) {
-         console.log(centerX)
          translateX[1] = e.deltaX - translateX[0];
          translateY[1] = e.deltaY - translateY[0];
          translateX[0] = e.deltaX;
