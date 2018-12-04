@@ -165,9 +165,9 @@
      hm.on("pinchmove", function(e){
        e.preventDefault();
        if (zoom[0]) {
-         zoomindex = e.scale;
-         // zoomindex = e.scale / zoom[3];
-         // zoom[3] = e.scale;
+         zoomindex = e.scale / zoom[3];
+         zoom[3] = e.scale;
+         alert(zoomindex);
          zoom[2] = zoom[2] * zoomindex;
          var zoomcenterX = Math.abs( (anchorX - centerX)/zoom[1]);
          var zoomcenterY = Math.abs( (anchorY - centerY)/zoom[1]);
