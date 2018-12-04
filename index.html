@@ -6,112 +6,92 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <link href="resources/css/jquery-ui-themes.css" type="text/css" rel="stylesheet"/>
-    <link href="resources/css/axure_rp_page.css" type="text/css" rel="stylesheet"/>
-    <link href="data/styles.css" type="text/css" rel="stylesheet"/>
-    <link href="files/test_-_a/styles.css" type="text/css" rel="stylesheet"/>
-    <script src="resources/scripts/jquery-1.7.1.min.js"></script>
-    <script src="resources/scripts/jquery-ui-1.8.10.custom.min.js"></script>
-    <script src="resources/scripts/prototypePre.js"></script>
-    <script src="data/document.js"></script>
-    <script src="resources/scripts/prototypePost.js"></script>
-    <script src="files/test_-_a/data.js"></script>
-    <script type="text/javascript">
-      $axure.utils.getTransparentGifPath = function() { return 'resources/images/transparent.gif'; };
-      $axure.utils.getOtherPath = function() { return 'resources/Other.html'; };
-      $axure.utils.getReloadPath = function() { return 'resources/reload.html'; };
-    </script>
+    <script src="resources/scripts/jquery-3.3.1.min.js"></script>
+    <script src="resources/scripts/jquery-ui.min.js"></script>
+    <style type="text/css">
+      body{
+        margin: 0px;
+        top: 0px;
+      }
+      #base{
+        position: relative;
+        width: 320px;
+        height: 510px;
+        margin: 0 auto;
+      }
+      #navigation-bar{
+        position: absolute;
+        width: 320px;
+        height: 45px;
+      }
+      #canvas-wrap{
+        position: absolute;
+        top: 45px;
+        width: 320px;
+        height: 450px;
+      }
+    </style>
   </head>
   <body>
-    <div id="base" class="">
-
-      <!-- countdown (动态面板) -->
-      <div id="u13" class="ax_default" data-label="countdown">
-        <div id="u13_state0" class="panel_state" data-label="State1" style="">
-          <div id="u13_state0_content" class="panel_state_content">
-
-            <!-- Unnamed (矩形) -->
-            <div id="u14" class="ax_default label">
-              <div id="u14_div" class=""></div>
-            </div>
-          </div>
+    <div id="base">
+      <!-- navigation bar -->
+      <div id="navigation-bar">
+        <!-- sketchboard onset button -->
+        <div id="caption"
+          style="position: absolute;
+          left: 95px;
+          top: 8px;
+          font-family: 微软雅黑;
+          font-size: 12px;
+          color: black;
+          text-align:right;">
+          双指缩放，单指拖动<br />点击按钮切换绘制模式
         </div>
-        <div id="u13_state1" class="panel_state" data-label="State2" style="visibility: hidden;">
-          <div id="u13_state1_content" class="panel_state_content">
-
-            <!-- Unnamed (矩形) -->
-            <div id="u15" class="ax_default label">
-              <div id="u15_div" class=""></div>
-            </div>
-          </div>
+        <button id="mybutton" type="button"
+          style="position:absolute;
+          left: 220px;
+          top: 5px;
+          width: 100px;
+          height: 40px;
+          background-color: #ED6D17;
+          border-radius: 10px;
+          font-family: 微软雅黑;
+          font-size: 16px;
+          color: white;">
+        绘制图案
+        </button>
+        <!-- countdown button -->
+        <div id="timer" style="position: absolute;
+          left: 0px;
+          top: 8px;
+          font-family: Century Gothic;
+          font-size: 28px;
+          color: black;">
+          5:00
         </div>
       </div>
-    </div>
 
-    <!-- navigation bar -->
-    <div id="navigation-bar">
-      <!-- sketchboard onset button -->
-      <button id="mybutton" type="button"
-        style="position:absolute;
-        left: 220px;
-        width: 100px;
-        height:40px;
-        background-color: #ED6D17;
-        border-radius: 10px;
-        font-family: 微软雅黑;
-        font-size: 16px;
-        color: white;">
-      绘制图案
-      </button>
-      <p id="caption"
-        style="position:absolute;
-        left: 95px;
+      <!-- sketchboard -->
+      <div id="canvas-wrap">
+        <canvas id="mycanvas" style="position: absolute;
         top: 5px;
-        font-family: 微软雅黑;
-        font-size: 12px;
-        color: black;
-        text-align:right;">
-      双指缩放，单指拖动<br />点击按钮切换绘制模式
-    </p>
-      <!-- countdown button -->
-      <p id="timer" style="position: absolute;
-        left: 0px;
-        top: 0px;
-        font-family: Century Gothic;
-        font-size: 28px;
-        color: black;">
-      5:00
-      </p>
+        background-color: #FFFFFF;
+        border: thin solid #000000;">
+        It is 2018! Get a NEW browser which supports canvas!
+      </canvas>
+      <div id="pic" style="visibility: hidden;">
+        <img id="test-k" class="img" src="resources/images/test-k.png"/>
+      </div>
     </div>
-
-  <!-- sketchboard -->
-  <div id="canvas-wrap">
-   <canvas id="mycanvas"
-     style="position: absolute;
-     left: 0px;
-     background-color: #FFFFFF;
-     border: thin solid #000000;">
-   It is 2018! Get a NEW browser which supports canvas!
-   </canvas>
-   <div id="pic" style="visibility: hidden;">
-     <img id="test-a" class="img" src="images/test-k.png"/>
-   </div>
- </div>
+  </div>
 
   <script>
      mybutton = document.getElementById('mybutton');
      timer = document.getElementById('timer');
-     img = document.getElementById('test-a');
+     img = document.getElementById('test-k');
      mycanvas = document.getElementById('mycanvas');
-     if (window.screen.width > 450) {
-       mycanvas.width = 750;
-       mycanvas.height = 600;
-       mycanvas.style.top = "110px";
-     } else {
-       mycanvas.width = 320;
-       mycanvas.height = 450;
-       mycanvas.style.top = "40px";
-     }
+     mycanvas.width = 319;
+     mycanvas.height = 450;
      context = mycanvas.getContext("2d");
 
      anchorX = context.canvas.width / 2;
@@ -167,12 +147,13 @@
 
      $('#mycanvas').on("touchstart", function(e){
        event.preventDefault();
-       var offset = this.getBoundingClientRect().left;
+       var offsetX = this.getBoundingClientRect().left;
+       var offsetY = this.getBoundingClientRect().top;
        if (draw == 0){
          if (e.originalEvent.touches.length > 1){
            zoom[0] = true;
-           anchorX = (e.originalEvent.touches[0].pageX + e.originalEvent.touches[1].pageX) / 2 - offset;
-           anchorY = (e.originalEvent.touches[0].pageY + e.originalEvent.touches[1].pageY) / 2 - this.offsetTop;
+           anchorX = (e.originalEvent.touches[0].pageX + e.originalEvent.touches[1].pageX) / 2 - offsetX;
+           anchorY = (e.originalEvent.touches[0].pageY + e.originalEvent.touches[1].pageY) / 2 - offsetY;
            zoomdistance = e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX;
            redraw();
          }
@@ -185,16 +166,17 @@
        }
        else if ((e.originalEvent.touches.length == 1) && (draw == 1)) {
          paint = true;
-         addClick(e.originalEvent.touches[0].pageX - offset, e.originalEvent.touches[0].pageY - this.offsetTop);
+         addClick(e.originalEvent.touches[0].pageX - offsetX, e.originalEvent.touches[0].pageY - offsetY);
          redraw();
        }
      });
 
      $('#mycanvas').on("touchmove", function(e){
        event.preventDefault();
-       var offset = this.getBoundingClientRect().left;
+       var offsetX = this.getBoundingClientRect().left;
+       var offsetY = this.getBoundingClientRect().top;
        if(paint){
-        addClick(e.originalEvent.touches[0].pageX - offset, e.originalEvent.touches[0].pageY - this.offsetTop, true);
+        addClick(e.originalEvent.touches[0].pageX - offsetX, e.originalEvent.touches[0].pageY - offsetY, true);
         redraw();
        }
        if(zoom[0]){
@@ -270,44 +252,6 @@
           context.stroke();
        }
      }
-     // num = Number(localStorage.getItem("num"));
-     // page2 = localStorage.getItem("page2");
-     // page3 = localStorage.getItem("page3");
-     function mytimer(){
-       t = setTimeout("mytimer()",1000);
-       if(timersec == 0 && timermin == 0){
-         name = localStorage.getItem("name");
-         mobile = localStorage.getItem("mobile");
-         var sub = {"name": name, "mobile": mobile, "test": "Kenno", "clickX": JSON.stringify(clickX), "clickY": JSON.stringify(clickY), "clickDrag": JSON.stringify(clickDrag)};
-         clearTimeout(t);
-         $.ajax({
-           type : 'POST',
-           url : 'datajson.php',
-           data: {subdata: JSON.stringify(sub)},
-           success : function(data){
-               // console.log(data);
-               location.href='thank_you_.html';
-           },
-          error: function(){
-            console.log('数据上传失败');
-          }
-         });
-       }
-       else if (timersec > 10){
-         timersec -= 1;
-         timer.innerHTML = timermin + ":" + timersec;
-       }
-       else if (timersec == 0 &&  timermin > 0) {
-         timersec = 59;
-         timermin -= 1;
-         timer.innerHTML = timermin + ":" + timersec;
-       }
-       else {
-         timersec -= 1;
-         timer.innerHTML = timermin + ":0" + timersec;
-       }
-     }
-     mytimer();
     </script>
   </body>
 </html>
