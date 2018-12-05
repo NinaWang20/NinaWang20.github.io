@@ -186,7 +186,7 @@
              zoomindex = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) / zoomdistance;
              zoomdistance = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX);
              zoom[2] = zoom[2] * zoomindex;
-             backend.innerHTML = "index"+zoomindex+"<br />"+"z[2]"+zoom[2]+"<br />";
+             backend.innerHTML = "index"+zoomindex+"<br />"+"z[2]"+zoom[2]+"<br />"+"d0"+inidistance+"<br />"+"d1"+zoomdistance;
              var zoomcenterX =Math.abs( (anchorX - centerX)/zoom[1]);
              var zoomcenterY =Math.abs( (anchorY - centerY)/zoom[1]);
              centerX = centerX * zoomindex - (zoomindex - 1) * anchorX;
