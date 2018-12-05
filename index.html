@@ -154,7 +154,7 @@
            zoom[0] = true;
            anchorX = (e.originalEvent.touches[0].pageX + e.originalEvent.touches[1].pageX) / 2 - offsetx;
            anchorY = (e.originalEvent.touches[0].pageY + e.originalEvent.touches[1].pageY) / 2 - offsety;
-           zoomdistance = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX);
+           zoomdistance = Math.abs(e.originalEvent.touches[0].pageY - e.originalEvent.touches[1].pageY);
            inidistance = zoomdistance;
            redraw();
          }
@@ -182,9 +182,9 @@
        }
        if(zoom[0]){
          if (e.originalEvent.touches.length == 2) {
-           if (Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) > 0) {
-             zoomindex = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX) / zoomdistance;
-             zoomdistance = Math.abs(e.originalEvent.touches[0].pageX - e.originalEvent.touches[1].pageX);
+           if (Math.abs(e.originalEvent.touches[0].pageY - e.originalEvent.touches[1].pageY) > 0) {
+             zoomindex = Math.abs(e.originalEvent.touches[0].pageY - e.originalEvent.touches[1].pageY) / zoomdistance;
+             zoomdistance = Math.abs(e.originalEvent.touches[0].pageY - e.originalEvent.touches[1].pageY);
              zoom[2] = zoom[2] * zoomindex;
              backend.innerHTML = "index"+zoomindex+"<br />"+"z[2]"+zoom[2]+"<br />"+"d0"+inidistance+"<br />"+"d1"+zoomdistance;
              var zoomcenterX =Math.abs( (anchorX - centerX)/zoom[1]);
